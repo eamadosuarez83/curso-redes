@@ -1,0 +1,25 @@
+// Topología típica de una red pequeña (hogar, oficina, granja)
+graph red_domestica {
+  graph [fontname="DejaVu Sans", bgcolor="white", nodesep=0.5, ranksep=0.55];
+  node  [shape=box, style="rounded,filled", fontname="DejaVu Sans", fontsize=11, color="#5F5E5A", fillcolor="#F1EFE8"];
+  edge  [color="#5F5E5A"];
+
+  internet [label="Internet\n(IP pública del ISP)", shape=ellipse];
+  router   [label="Router\ngateway · NAT · DHCP · DNS caché\nLAN: 192.168.1.1", fillcolor="#FAECE7", color="#993C1D"];
+
+  subgraph cluster_lan {
+    label="LAN — subred 192.168.1.0/24 (máscara 255.255.255.0)"; style="rounded,dashed"; color="#0F6E56"; fontname="DejaVu Sans"; fontsize=11;
+    switch [label="Switch\n(capa 2, tabla MAC)", fillcolor="#FAECE7", color="#993C1D"];
+    ap     [label="Punto de acceso\nWLAN · SSID", fillcolor="#FAECE7", color="#993C1D"];
+    srv    [label="Servidor\n192.168.1.10 (fija)"];
+    pc     [label="PC\n192.168.1.20 (fija)"];
+    cel    [label="Celular\nIP por DHCP"];
+    esp    [label="ESP32 sensor\nIP por DHCP"];
+  }
+
+  internet -- router [label=" WAN", fontname="DejaVu Sans", fontsize=10];
+  router -- switch;
+  router -- ap;
+  switch -- srv; switch -- pc;
+  ap -- cel [style=dashed]; ap -- esp [style=dashed];
+}

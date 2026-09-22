@@ -1,0 +1,18 @@
+// Un router conectando dos subredes: la puerta de enlace de cada lado
+graph dos_subredes {
+  graph [rankdir=LR, fontname="DejaVu Sans", bgcolor="white", nodesep=0.4];
+  node  [shape=box, style="rounded,filled", fontname="DejaVu Sans", fontsize=11, color="#5F5E5A", fillcolor="#F1EFE8"];
+  edge  [color="#5F5E5A", fontname="DejaVu Sans", fontsize=10];
+
+  subgraph cluster_a { label="Subred A: 192.168.10.0/24"; style="rounded,dashed"; color="#0F6E56"; fontname="DejaVu Sans";
+    a1 [label="Oficina PC\n192.168.10.20\ngw 192.168.10.1"];
+    a2 [label="Servidor\n192.168.10.10\ngw 192.168.10.1"];
+  }
+  subgraph cluster_b { label="Subred B: 192.168.20.0/24"; style="rounded,dashed"; color="#534AB7"; fontname="DejaVu Sans";
+    b1 [label="Sensor galpón 1\n192.168.20.31\ngw 192.168.20.1"];
+    b2 [label="Sensor galpón 2\n192.168.20.32\ngw 192.168.20.1"];
+  }
+  r [label="Router\neth0: 192.168.10.1\neth1: 192.168.20.1", fillcolor="#FAECE7", color="#993C1D"];
+
+  a1 -- r; a2 -- r; r -- b1; r -- b2;
+}

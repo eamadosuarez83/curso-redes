@@ -1,0 +1,24 @@
+// Encapsulamiento: cada capa envuelve lo que recibe de arriba
+digraph encapsulamiento {
+  graph [rankdir=TB, fontname="DejaVu Sans", bgcolor="white", ranksep=0.25];
+  node  [shape=plain, fontname="DejaVu Sans", fontsize=11];
+  edge  [color="#5F5E5A", arrowsize=0.7];
+
+  app [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="6">
+    <tr><td width="190" bgcolor="#EEEDFE">Datos (p. ej. una página web)</td>
+        <td border="0" align="left">  Aplicación → <b>mensaje</b></td></tr></table>>];
+  tr  [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="6">
+    <tr><td bgcolor="#E1F5EE">Cab. TCP</td><td width="190" bgcolor="#EEEDFE">Datos</td>
+        <td border="0" align="left">  Transporte → <b>segmento</b></td></tr></table>>];
+  red [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="6">
+    <tr><td bgcolor="#FAEEDA">Cab. IP</td><td bgcolor="#E1F5EE">Cab. TCP</td><td width="190" bgcolor="#EEEDFE">Datos</td>
+        <td border="0" align="left">  Red → <b>paquete</b></td></tr></table>>];
+  enl [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="6">
+    <tr><td bgcolor="#FAECE7">Cab. Ethernet</td><td bgcolor="#FAEEDA">Cab. IP</td><td bgcolor="#E1F5EE">Cab. TCP</td><td width="190" bgcolor="#EEEDFE">Datos</td><td bgcolor="#FAECE7">FCS</td>
+        <td border="0" align="left">  Enlace → <b>trama</b></td></tr></table>>];
+  fis [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="6">
+    <tr><td width="420" bgcolor="#F1EFE8">0110100101110001010110100101 …</td>
+        <td border="0" align="left">  Física → <b>bits</b></td></tr></table>>];
+
+  app -> tr -> red -> enl -> fis;
+}

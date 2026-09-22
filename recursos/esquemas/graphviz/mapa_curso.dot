@@ -1,0 +1,39 @@
+// Mapa de dependencias entre bloques del curso
+digraph mapa_curso {
+  graph [rankdir=TB, fontname="DejaVu Sans", nodesep=0.35, ranksep=0.45, bgcolor="white"];
+  node  [shape=box, style="rounded,filled", fontname="DejaVu Sans", fontsize=11, fillcolor="#EEEDFE", color="#534AB7"];
+  edge  [color="#5F5E5A", arrowsize=0.7];
+
+  subgraph cluster_base { label="Fundamentos"; style="rounded,dashed"; color="#888780"; fontname="DejaVu Sans";
+    b00 [label="B00 Entorno Linux\ny herramientas"];
+    b01 [label="B01 Preliminares:\nnúmeros, bits, señales"];
+    b02 [label="B02 ¿Qué es una red?\nCapas y encapsulamiento"];
+  }
+  subgraph cluster_capas { label="Recorrido por capas"; style="rounded,dashed"; color="#888780"; fontname="DejaVu Sans";
+    node [fillcolor="#E1F5EE", color="#0F6E56"];
+    b03 [label="B03 Capa física"];
+    b04 [label="B04 Ethernet y MAC"];
+    b05 [label="B05 Direccionamiento\nIPv4 y subredes"];
+    b06 [label="B06 ARP, puerta de enlace,\nrutas y NAT"];
+    b07 [label="B07 IPv6"];
+    b08 [label="B08 Transporte:\nTCP, UDP, puertos"];
+    b09 [label="B09 DHCP, DNS, NTP"];
+    b10 [label="B10 Aplicación:\nHTTP, HTTPS, SSH"];
+    b11 [label="B11 Redes inalámbricas\n(WLAN)"];
+  }
+  subgraph cluster_oficio { label="Oficio"; style="rounded,dashed"; color="#888780"; fontname="DejaVu Sans";
+    node [fillcolor="#FAECE7", color="#993C1D"];
+    b12 [label="B12 Configurar la red\nen Linux"];
+    b13 [label="B13 Seguridad de red"];
+    b14 [label="B14 VPN y\nacceso remoto"];
+    b15 [label="B15 Diagnóstico y\nmantenimiento"];
+    b16 [label="B16 Proyecto integrador:\nred de una granja"];
+  }
+
+  b00 -> b01 -> b02 -> b03 -> b04 -> b05 -> b06;
+  b06 -> b07; b06 -> b08; b08 -> b09; b08 -> b10;
+  b04 -> b11; b03 -> b11;
+  b09 -> b12; b07 -> b12; b11 -> b12;
+  b10 -> b13; b12 -> b13; b13 -> b14;
+  b12 -> b15; b14 -> b16; b15 -> b16;
+}

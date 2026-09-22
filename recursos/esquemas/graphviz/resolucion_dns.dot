@@ -1,0 +1,21 @@
+// Resolución DNS recursiva de un nombre
+digraph dns {
+  graph [rankdir=LR, fontname="DejaVu Sans", bgcolor="white", nodesep=0.35, ranksep=0.9];
+  node  [shape=box, style="rounded,filled", fontname="DejaVu Sans", fontsize=11, color="#5F5E5A", fillcolor="#F1EFE8"];
+  edge  [fontname="DejaVu Sans", fontsize=10, color="#5F5E5A", arrowsize=0.7];
+
+  pc   [label="Tu equipo\n(stub resolver)", fillcolor="#E1F5EE", color="#0F6E56"];
+  rec  [label="Resolvedor recursivo\n(router, ISP, 1.1.1.1)\ncon caché", fillcolor="#FAECE7", color="#993C1D"];
+  raiz [label="Servidores raíz\n( . )"];
+  tld  [label="Servidores TLD\n( .co )"];
+  aut  [label="Servidor autoritativo\n( ejemplo.co )"];
+
+  pc  -> rec  [label="1. ¿IP de www.ejemplo.co?"];
+  rec -> raiz [label="2. pregunta"];
+  raiz -> rec [label="3. pregunta a .co", style=dashed];
+  rec -> tld  [label="4. pregunta"];
+  tld -> rec  [label="5. pregunta a ejemplo.co", style=dashed];
+  rec -> aut  [label="6. pregunta"];
+  aut -> rec  [label="7. A 203.0.113.25", style=dashed];
+  rec -> pc   [label="8. respuesta (y la guarda\nen caché según TTL)", style=dashed];
+}

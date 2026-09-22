@@ -1,0 +1,25 @@
+// Correspondencia entre el modelo OSI y el modelo TCP/IP, con ejemplos
+digraph capas {
+  graph [fontname="DejaVu Sans", bgcolor="white"];
+  node  [shape=plain, fontname="DejaVu Sans", fontsize=11];
+
+  tabla [label=<
+  <table border="0" cellborder="1" cellspacing="2" cellpadding="7" color="#5F5E5A">
+    <tr>
+      <td bgcolor="#534AB7"><font color="white"><b>OSI (7 capas)</b></font></td>
+      <td bgcolor="#0F6E56"><font color="white"><b>TCP/IP (uso real)</b></font></td>
+      <td bgcolor="#5F5E5A"><font color="white"><b>Ejemplos</b></font></td>
+    </tr>
+    <tr><td bgcolor="#EEEDFE">7 Aplicación</td>
+        <td bgcolor="#EEEDFE" rowspan="3">Aplicación</td>
+        <td bgcolor="#EEEDFE" rowspan="3">HTTP, HTTPS, DNS, DHCP, SSH</td></tr>
+    <tr><td bgcolor="#EEEDFE">6 Presentación</td></tr>
+    <tr><td bgcolor="#EEEDFE">5 Sesión</td></tr>
+    <tr><td bgcolor="#E1F5EE">4 Transporte</td><td bgcolor="#E1F5EE">Transporte</td><td bgcolor="#E1F5EE">TCP, UDP (puertos)</td></tr>
+    <tr><td bgcolor="#FAEEDA">3 Red</td><td bgcolor="#FAEEDA">Internet</td><td bgcolor="#FAEEDA">IPv4, IPv6, ICMP — router</td></tr>
+    <tr><td bgcolor="#FAECE7">2 Enlace de datos</td>
+        <td bgcolor="#FAECE7" rowspan="2">Acceso a la red</td>
+        <td bgcolor="#FAECE7">Ethernet, Wi-Fi, MAC — switch</td></tr>
+    <tr><td bgcolor="#F1EFE8">1 Física</td><td bgcolor="#F1EFE8">cable UTP, fibra, radio</td></tr>
+  </table>>];
+}

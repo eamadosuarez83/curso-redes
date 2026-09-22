@@ -1,0 +1,23 @@
+// Intercambio DHCP: Discover, Offer, Request, Acknowledge
+digraph dora {
+  graph [rankdir=TB, fontname="DejaVu Sans", bgcolor="white", nodesep=2.2, ranksep=0.55, splines=false];
+  node  [shape=point, width=0.05, color="#5F5E5A"];
+  edge  [fontname="DejaVu Sans", fontsize=10, arrowsize=0.7];
+
+  c  [shape=box, style="rounded,filled", fillcolor="#E1F5EE", color="#0F6E56", fontname="DejaVu Sans", fontsize=11, label="Cliente\n(sin IP)"];
+  s  [shape=box, style="rounded,filled", fillcolor="#FAECE7", color="#993C1D", fontname="DejaVu Sans", fontsize=11, label="Servidor DHCP\n(router)"];
+  {rank=same; c; s;}
+  c1; c2; c3; c4; c5; s1; s2; s3; s4; s5;
+  {rank=same; c1; s1;} {rank=same; c2; s2;} {rank=same; c3; s3;} {rank=same; c4; s4;} {rank=same; c5; s5;}
+  edge [arrowhead=none, style=dashed, color="#B4B2A9"];
+  c -> c1 -> c2 -> c3 -> c4 -> c5;
+  s -> s1 -> s2 -> s3 -> s4 -> s5;
+  edge [arrowhead=normal, style=solid, color="#0F6E56"];
+  c1 -> s1 [label="1. DISCOVER (broadcast)\n¿hay algún servidor DHCP?", constraint=false];
+  edge [color="#993C1D"];
+  s2 -> c2 [label="2. OFFER\nte ofrezco 192.168.1.57", constraint=false];
+  edge [color="#0F6E56"];
+  c3 -> s3 [label="3. REQUEST\nacepto 192.168.1.57", constraint=false];
+  edge [color="#993C1D"];
+  s4 -> c4 [label="4. ACK\nmáscara, gateway, DNS, tiempo de concesión", constraint=false];
+}
