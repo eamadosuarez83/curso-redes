@@ -23,6 +23,7 @@ curso-redes/
 ├── ESTRUCTURA.md             ← este archivo
 ├── requirements.txt          ← dependencias para generar esquemas
 ├── bloques/
+│   ├── _plantilla_bloque.md    ← esqueleto que sigue cada bloque
 │   ├── bloque_00_entorno_linux.md
 │   ├── bloque_01_preliminares.md
 │   └── … hasta bloque_16_proyecto_integrador.md
@@ -62,6 +63,11 @@ curso-redes/
 - La bitácora de laboratorio: por qué se anota todo lo que se cambia.
 
 **Laboratorio:** instalar el kit, ejecutar `ip addr` por primera vez y guardar la salida en la bitácora, sin interpretarla todavía.
+
+**Esquemas:**
+- [Anatomía de un comando](recursos/imagenes/anatomia_comando.svg) — `anatomia_comando.dot`
+- [Árbol del sistema de archivos](recursos/imagenes/arbol_archivos.svg) — `arbol_archivos.dot`
+- [Flujos estándar, redirecciones y tuberías](recursos/imagenes/tuberias_redirecciones.svg) — `tuberias_redirecciones.dot`
 
 ### Bloque 01 — Preliminares: números, bits y señales
 

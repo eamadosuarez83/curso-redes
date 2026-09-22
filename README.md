@@ -8,7 +8,9 @@ Curso de redes de computadores en español para estudiantes de ingeniería que n
 
 - [FILOSOFIA.md](FILOSOFIA.md) — el enfoque del curso y las reglas con que se escribe cada bloque.
 - [ESTRUCTURA.md](ESTRUCTURA.md) — el temario completo: 17 bloques y 5 anexos.
-- `bloques/` — un archivo Markdown por bloque.
+- `bloques/` — un archivo Markdown por bloque, más `_plantilla_bloque.md`.
+
+**Por dónde empezar:** [Bloque 00 — Entorno de trabajo en Linux](bloques/bloque_00_entorno_linux.md).
 - `anexos/` — glosario, comandos, laboratorio virtual, tablas y estándares.
 - `recursos/` — esquemas (fuentes en Graphviz y schemdraw) e imágenes generadas.
 
@@ -33,6 +35,7 @@ pip install -r requirements.txt
 | Parte | Estado |
 |---|---|
 | Filosofía y temario | Listo |
-| Esquemas base | 12 de los previstos |
-| Bloques 00–16 | Por escribir |
+| Esquemas base | 15 de los previstos |
+| Bloque 00 — Entorno Linux | Listo |
+| Bloques 01–16 | Por escribir |
 | Anexos A–E | Por escribir |

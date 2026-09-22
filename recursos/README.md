@@ -42,6 +42,9 @@ Todas las imágenes del curso se generan desde código. Así se pueden corregir,
 | Imagen | Fuente | Bloque |
 |---|---|---|
 | `mapa_curso.svg` | graphviz | Estructura |
+| `anatomia_comando.svg` | graphviz | 00 |
+| `arbol_archivos.svg` | graphviz | 00 |
+| `tuberias_redirecciones.svg` | graphviz | 00 |
 | `capas_osi_tcpip.svg` | graphviz | 02 |
 | `encapsulamiento.svg` | graphviz | 02 |
 | `red_domestica.svg` | graphviz | 02 |

@@ -1,0 +1,25 @@
+// Anatomía de un comando: nombre, subcomando, opciones y argumentos
+digraph anatomia_comando {
+  graph [fontname="DejaVu Sans", bgcolor="white", rankdir=TB, nodesep=0.3, ranksep=0.5];
+  node  [fontname="DejaVu Sans", fontsize=11];
+  edge  [color="#5F5E5A", arrowsize=0.7];
+
+  cmd [shape=plaintext, label=<
+    <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="8">
+      <TR>
+        <TD PORT="p" BGCOLOR="#F1EFE8" COLOR="#5F5E5A"><FONT FACE="DejaVu Sans Mono">$</FONT></TD>
+        <TD PORT="n" BGCOLOR="#EEEDFE" COLOR="#534AB7"><FONT FACE="DejaVu Sans Mono">ip</FONT></TD>
+        <TD PORT="o" BGCOLOR="#FAECE7" COLOR="#993C1D"><FONT FACE="DejaVu Sans Mono">-br</FONT></TD>
+        <TD PORT="s" BGCOLOR="#EEEDFE" COLOR="#534AB7"><FONT FACE="DejaVu Sans Mono">addr show</FONT></TD>
+        <TD PORT="a" BGCOLOR="#E1F5EE" COLOR="#0F6E56"><FONT FACE="DejaVu Sans Mono">dev lo</FONT></TD>
+      </TR>
+    </TABLE>>];
+
+  p [shape=note, style=filled, fillcolor="#F1EFE8", color="#5F5E5A", label="Indicador (prompt)\nlo escribe la shell,\nno se teclea"];
+  n [shape=note, style=filled, fillcolor="#EEEDFE", color="#534AB7", label="Nombre del programa\n(qué se ejecuta)"];
+  o [shape=note, style=filled, fillcolor="#FAECE7", color="#993C1D", label="Opción\n(cómo se ejecuta:\n-br = salida breve)"];
+  s [shape=note, style=filled, fillcolor="#EEEDFE", color="#534AB7", label="Subcomando\n(qué parte del programa:\nlas direcciones, mostrarlas)"];
+  a [shape=note, style=filled, fillcolor="#E1F5EE", color="#0F6E56", label="Argumento\n(sobre qué se ejecuta:\nla interfaz lo)"];
+
+  cmd:p -> p; cmd:n -> n; cmd:o -> o; cmd:s -> s; cmd:a -> a;
+}

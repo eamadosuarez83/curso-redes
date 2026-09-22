@@ -1,0 +1,28 @@
+// Flujos estándar de un programa, redirecciones y tuberías
+digraph tuberias_redirecciones {
+  graph [fontname="DejaVu Sans", bgcolor="white", rankdir=LR, nodesep=0.35, ranksep=0.6];
+  node  [shape=box, style="rounded,filled", fontname="DejaVu Sans", fontsize=11, color="#5F5E5A", fillcolor="#F1EFE8"];
+  edge  [color="#5F5E5A", fontname="DejaVu Sans Mono", fontsize=10];
+
+  subgraph cluster_dos {
+    label="ip addr | grep inet > direcciones.txt"; style="rounded,dashed"; color="#534AB7"; fontname="DejaVu Sans Mono"; fontsize=11;
+    ip    [label="ip addr", fillcolor="#EEEDFE", color="#534AB7", fontname="DejaVu Sans Mono"];
+    grep  [label="grep inet", fillcolor="#EEEDFE", color="#534AB7", fontname="DejaVu Sans Mono"];
+    arch  [label="direcciones.txt", shape=note, fillcolor="#E1F5EE", color="#0F6E56", fontname="DejaVu Sans Mono"];
+    err   [label="pantalla\n(los errores no\nentran al tubo)", shape=ellipse];
+    ip -> grep [label=" | tubería\n(stdout → stdin)", color="#0F6E56", fontcolor="#0F6E56"];
+    grep -> arch [label=" > redirección", color="#0F6E56", fontcolor="#0F6E56"];
+    ip -> err [label="stderr", color="#993C1D", fontcolor="#993C1D"];
+  }
+
+  subgraph cluster_uno {
+    label="Un programa y sus tres flujos"; style="rounded,dashed"; color="#5F5E5A"; fontname="DejaVu Sans"; fontsize=11;
+    teclado [label="teclado", shape=ellipse];
+    prog    [label="programa", fillcolor="#EEEDFE", color="#534AB7"];
+    pant1   [label="pantalla", shape=ellipse];
+    pant2   [label="pantalla", shape=ellipse];
+    teclado -> prog [label="0 stdin"];
+    prog -> pant1 [label="1 stdout", color="#0F6E56", fontcolor="#0F6E56"];
+    prog -> pant2 [label="2 stderr", color="#993C1D", fontcolor="#993C1D"];
+  }
+}

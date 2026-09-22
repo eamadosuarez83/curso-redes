@@ -1,0 +1,36 @@
+// Árbol del sistema de archivos: las carpetas que el curso visita
+digraph arbol_archivos {
+  graph [fontname="DejaVu Sans", bgcolor="white", rankdir=LR, nodesep=0.18, ranksep=0.45];
+  node  [shape=box, style="rounded,filled", fontname="DejaVu Sans Mono", fontsize=10, color="#5F5E5A", fillcolor="#F1EFE8"];
+  edge  [color="#5F5E5A", arrowhead=none];
+
+  raiz [label="/\n(raíz)", fillcolor="#EEEDFE", color="#534AB7"];
+
+  etc  [label="etc/\nconfiguración"];
+  home [label="home/\ncarpetas personales"];
+  usr  [label="usr/bin/\nprogramas"];
+  var  [label="var/log/\nregistros"];
+  proc [label="proc/\nestado del núcleo"];
+
+  hosts   [label="hosts"];
+  resolv  [label="resolv.conf"];
+  nm      [label="NetworkManager/"];
+  est     [label="estudiante/\n(~ = carpeta personal)", fillcolor="#E1F5EE", color="#0F6E56"];
+  redes   [label="redes/", fillcolor="#E1F5EE", color="#0F6E56"];
+  bit     [label="bitacora.md", fillcolor="#E1F5EE", color="#0F6E56"];
+  ipbin   [label="ip"];
+  ping    [label="ping"];
+  journal [label="journal/"];
+  net     [label="net/dev"];
+
+  raiz -> etc; raiz -> home; raiz -> usr; raiz -> var; raiz -> proc;
+  etc -> hosts; etc -> resolv; etc -> nm;
+  home -> est -> redes -> bit;
+  usr -> ipbin; usr -> ping;
+  var -> journal;
+  proc -> net;
+
+  nota [shape=note, fontname="DejaVu Sans", fontsize=10, fillcolor="#E1F5EE", color="#0F6E56",
+        label="Ruta absoluta (desde la raíz):\n/home/estudiante/redes/bitacora.md\n\nRuta relativa (desde ~):\nredes/bitacora.md"];
+  bit -> nota [style=dashed, arrowhead=none];
+}
