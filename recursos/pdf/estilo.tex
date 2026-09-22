@@ -1,0 +1,20 @@
+% Ajustes de estilo para export_pdf.sh (se inyecta con pandoc -H).
+%
+% Figuras: pandoc (desde 3.5) escala cada imagen con \pandocbounded para que quepa en el
+% alto de la página, pero no descuenta el pie de figura, y las muy altas (el
+% mapa del curso) se salen. Aquí el límite es el 85 % del alto del texto.
+% Las figuras pequeñas conservan su tamaño natural. Con pandoc anterior a la
+% 3.5 (que no define \pandocbounded) el ajuste simplemente no se aplica.
+\makeatletter
+\ifdefined\pandocbounded
+\renewcommand*\pandocbounded[1]{%
+  \sbox\pandoc@box{#1}%
+  \Gscale@div\@tempa{0.85\textheight}{\dimexpr\ht\pandoc@box+\dp\pandoc@box\relax}%
+  \Gscale@div\@tempb{\linewidth}{\wd\pandoc@box}%
+  \ifdim\@tempb\p@<\@tempa\p@\let\@tempa\@tempb\fi
+  \ifdim\@tempa\p@<\p@\scalebox{\@tempa}{\usebox\pandoc@box}%
+  \else\usebox{\pandoc@box}%
+  \fi
+}
+\fi
+\makeatother

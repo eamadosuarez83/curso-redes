@@ -2,3 +2,19 @@ __pycache__/
 *.pyc
 .venv/
 *.pdf
+
+# PDFs generados (se compilan desde los .md con ./export_pdf.sh);
+# incluye tanto pdf/ como las versiones .pdf de recursos/imagenes/*.svg
+# (ya cubiertos por *.pdf arriba)
+
+# Artefactos de LaTeX / export_pdf.sh
+*.aux
+*.log
+*.out
+*.toc
+.build-*.md
+
+# Sistema operativo
+.DS_Store
+*~
+.*.swp

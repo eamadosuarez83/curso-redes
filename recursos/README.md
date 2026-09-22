@@ -8,7 +8,8 @@ Todas las imágenes del curso se generan desde código. Así se pueden corregir,
 |---|---|
 | `esquemas/graphviz/` | Fuentes `.dot`: topologías, flujos entre equipos, tablas de capas, mapas. |
 | `esquemas/schemdraw/` | Fuentes `.py`: señales, circuitos, compuertas lógicas, cableado, diagramas de flujo. |
-| `imagenes/` | SVG generados. Son los que se enlazan desde los bloques. |
+| `imagenes/` | SVG generados. Son los que se enlazan desde los bloques. (Los `.pdf` de al lado los genera `export_pdf.sh` y no se versionan.) |
+| `pdf/` | Estilo de la exportación a PDF: filtro `detalles.lua` y ajustes `estilo.tex`. Ver la sección *Exportar a PDF* del [README](../README.md). |
 
 ## Cuándo usar cada herramienta
 
@@ -34,7 +35,8 @@ Todas las imágenes del curso se generan desde código. Así se pueden corregir,
 ## Generar
 
 ```bash
-./generar_recursos.sh
+./generar_recursos.sh         # SVG
+./generar_recursos.sh --pdf   # SVG + PDF vectorial (lo usa export_pdf.sh)
 ```
 
 ## Inventario

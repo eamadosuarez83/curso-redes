@@ -22,6 +22,7 @@ curso-redes/
 ├── FILOSOFIA.md              ← reglas de escritura y enfoque
 ├── ESTRUCTURA.md             ← este archivo
 ├── requirements.txt          ← dependencias para generar esquemas
+├── export_pdf.sh             ← exporta bloques y libro completo a pdf/ (ignorada por git)
 ├── bloques/
 │   ├── _plantilla_bloque.md    ← esqueleto que sigue cada bloque
 │   ├── bloque_00_entorno_linux.md
@@ -36,7 +37,8 @@ curso-redes/
     ├── esquemas/
     │   ├── graphviz/         ← fuentes .dot
     │   └── schemdraw/        ← fuentes .py
-    └── imagenes/             ← SVG generados (se enlazan desde los bloques)
+    ├── imagenes/             ← SVG generados (se enlazan desde los bloques)
+    └── pdf/                  ← filtro Lua y estilo LaTeX de la exportación a PDF
 ```
 
 ---
