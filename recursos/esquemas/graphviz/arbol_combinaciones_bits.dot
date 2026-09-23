@@ -1,0 +1,28 @@
+// Cada bit nuevo duplica las combinaciones: 3 bits -> 2^3 = 8
+digraph arbol_combinaciones_bits {
+  graph [fontname="DejaVu Sans", bgcolor="white", rankdir=TB, nodesep=0.15, ranksep=0.45];
+  node  [shape=box, style="rounded,filled", fontname="DejaVu Sans Mono", fontsize=11, color="#5F5E5A", fillcolor="#F1EFE8", width=0.5, height=0.3];
+  edge  [color="#5F5E5A", fontname="DejaVu Sans Mono", fontsize=10, arrowsize=0.6];
+
+  inicio [label="", shape=circle, width=0.15, fillcolor="#534AB7", color="#534AB7"];
+
+  b0 [label="0"]; b1 [label="1"];
+  b00 [label="00"]; b01 [label="01"]; b10 [label="10"]; b11 [label="11"];
+  node [fillcolor="#E1F5EE", color="#0F6E56"];
+  b000 [label="000\n= 0"]; b001 [label="001\n= 1"]; b010 [label="010\n= 2"]; b011 [label="011\n= 3"];
+  b100 [label="100\n= 4"]; b101 [label="101\n= 5"]; b110 [label="110\n= 6"]; b111 [label="111\n= 7"];
+
+  inicio -> b0 [label="0 "]; inicio -> b1 [label="1 "];
+  b0 -> b00; b0 -> b01; b1 -> b10; b1 -> b11;
+  b00 -> b000; b00 -> b001; b01 -> b010; b01 -> b011;
+  b10 -> b100; b10 -> b101; b11 -> b110; b11 -> b111;
+
+  node [shape=plaintext, style="", fontname="DejaVu Sans", fontsize=10, fillcolor="white", color="white"];
+  n1 [label="1 bit: 2¹ = 2", fontcolor="#534AB7"];
+  n2 [label="2 bits: 2² = 4", fontcolor="#534AB7"];
+  n3 [label="3 bits: 2³ = 8", fontcolor="#0F6E56"];
+  {rank=same; b1; n1}
+  {rank=same; b11; n2}
+  {rank=same; b111; n3}
+  b1 -> n1 [style=invis]; b11 -> n2 [style=invis]; b111 -> n3 [style=invis];
+}

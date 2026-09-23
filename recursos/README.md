@@ -14,7 +14,7 @@ Todas las imágenes del curso se generan desde código. Así se pueden corregir,
 ## Cuándo usar cada herramienta
 
 - **Graphviz:** cuando lo importante son las **relaciones** entre cosas: qué se conecta con qué, quién le habla a quién, en qué orden. Graphviz acomoda los nodos solo.
-- **schemdraw:** cuando el esquema es **eléctrico o de señales**: formas de onda, circuitos, compuertas lógicas, pines de un conector, o un diagrama de flujo con forma precisa.
+- **schemdraw:** cuando el esquema es **eléctrico o de señales**: formas de onda, circuitos, compuertas lógicas, pines de un conector, o un diagrama de flujo con forma precisa. Las gráficas con ejes (una onda en el tiempo, un diagrama espacio-tiempo) se hacen con matplotlib directamente, en la misma carpeta y con la misma `_comun.py`.
 
 ## Reglas
 
@@ -47,6 +47,10 @@ Todas las imágenes del curso se generan desde código. Así se pueden corregir,
 | `anatomia_comando.svg` | graphviz | 00 |
 | `arbol_archivos.svg` | graphviz | 00 |
 | `tuberias_redirecciones.svg` | graphviz | 00 |
+| `conversion_nibbles.svg` | graphviz | 01 |
+| `arbol_combinaciones_bits.svg` | graphviz | 01 |
+| `onda_amplitud_periodo.svg` | schemdraw (matplotlib) | 01 |
+| `tiempos_transmision_propagacion.svg` | schemdraw (matplotlib) | 01 |
 | `capas_osi_tcpip.svg` | graphviz | 02 |
 | `encapsulamiento.svg` | graphviz | 02 |
 | `red_domestica.svg` | graphviz | 02 |

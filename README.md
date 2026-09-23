@@ -95,7 +95,9 @@ sudo apt install pandoc texlive-luatex texlive-latex-extra \
 2. **Hace una copia temporal** de cada Markdown (`.build-*.md`) cambiando las rutas `recursos/imagenes/*.svg` por `*.pdf`. Los originales no se tocan.
 3. **Compila** la copia con pandoc y los parámetros de la tabla, más dos ajustes propios de este curso (en `recursos/pdf/`):
    - `detalles.lua` — filtro de pandoc. En GitHub las respuestas de la serie B van plegadas en `<details><summary>…</summary>`; LaTeX descarta ese HTML y el título se perdería. El filtro lo convierte en un párrafo en negrita (**Respuestas de la serie B**) y deja el contenido visible.
-   - `estilo.tex` — se inyecta con `-H`. Limita la altura de cada figura al 85 % del alto del texto, para que las figuras muy altas (el mapa del curso) quepan junto con su pie. Las pequeñas conservan su tamaño natural.
+   - `estilo.tex` — se inyecta con `-H`. Hace dos cosas:
+     - limita la altura de cada figura al 85 % del alto del texto, para que las figuras muy altas (el mapa del curso) quepan junto con su pie; las pequeñas conservan su tamaño natural;
+     - parte las líneas largas de los bloques de código con el paquete `fvextra` (incluido en `texlive-latexextra` / `texlive-latex-extra`), para que las salidas de comandos como `ip link` no se salgan del margen. La continuación se marca con una flecha.
 4. Borra las copias temporales.
 
 En esencia, para un bloque:
@@ -135,8 +137,9 @@ Las figuras siguen la paleta común del curso (ver [recursos/README.md](recursos
 | Parte | Estado |
 |---|---|
 | Filosofía y temario | Listo |
-| Esquemas base | 15 de los previstos |
+| Esquemas base | 19 de los previstos |
 | Bloque 00 — Entorno Linux | Listo |
-| Bloques 01–16 | Por escribir |
+| Bloque 01 — Números, bits y señales | Listo |
+| Bloques 02–16 | Por escribir |
 | Anexos A–E | Por escribir |
 | Exportación a PDF | Lista (`./export_pdf.sh`) |

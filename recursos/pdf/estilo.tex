@@ -18,3 +18,16 @@
 }
 \fi
 \makeatother
+
+% Código: las salidas de comandos de red tienen líneas largas (ip link, ss…)
+% que se salían del margen derecho. fvextra las parte y marca la
+% continuación con una flecha. Aplica a los bloques con lenguaje
+% (```console, entorno Highlighting) y, al redefinir verbatim, también a los
+% bloques sin lenguaje.
+\usepackage{fvextra}
+\fvset{breaklines=true, breakanywhere=true}
+\makeatletter
+\@ifundefined{Highlighting}{}{%
+  \RecustomVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\},breaklines,breakanywhere}}
+\makeatother
+\RecustomVerbatimEnvironment{verbatim}{Verbatim}{}

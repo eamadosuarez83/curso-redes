@@ -1,0 +1,55 @@
+// Binario <-> hexadecimal por nibbles (grupos de 4 bits)
+// Ejemplo: los dos primeros octetos de 192.168.x.x
+digraph conversion_nibbles {
+  graph [fontname="DejaVu Sans", bgcolor="white", rankdir=TB, nodesep=0.2, ranksep=0.35];
+  node  [shape=plaintext, fontname="DejaVu Sans"];
+
+  t [label=<
+  <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="6">
+    <TR>
+      <TD BORDER="0" ALIGN="RIGHT"><FONT COLOR="#5F5E5A">decimal (octeto)</FONT></TD>
+      <TD COLSPAN="2" BGCOLOR="#F1EFE8" COLOR="#5F5E5A"><B>192</B></TD>
+      <TD COLSPAN="2" BGCOLOR="#F1EFE8" COLOR="#5F5E5A"><B>168</B></TD>
+    </TR>
+    <TR>
+      <TD BORDER="0" ALIGN="RIGHT"><FONT COLOR="#534AB7">binario (8 bits)</FONT></TD>
+      <TD BGCOLOR="#EEEDFE" COLOR="#534AB7"><FONT FACE="DejaVu Sans Mono">1100</FONT></TD>
+      <TD BGCOLOR="#EEEDFE" COLOR="#534AB7"><FONT FACE="DejaVu Sans Mono">0000</FONT></TD>
+      <TD BGCOLOR="#EEEDFE" COLOR="#534AB7"><FONT FACE="DejaVu Sans Mono">1010</FONT></TD>
+      <TD BGCOLOR="#EEEDFE" COLOR="#534AB7"><FONT FACE="DejaVu Sans Mono">1000</FONT></TD>
+    </TR>
+    <TR>
+      <TD BORDER="0" ALIGN="RIGHT"><FONT COLOR="#5F5E5A">valor de cada nibble</FONT></TD>
+      <TD BORDER="0"><FONT POINT-SIZE="10">8+4 = 12</FONT></TD>
+      <TD BORDER="0"><FONT POINT-SIZE="10">0</FONT></TD>
+      <TD BORDER="0"><FONT POINT-SIZE="10">8+2 = 10</FONT></TD>
+      <TD BORDER="0"><FONT POINT-SIZE="10">8</FONT></TD>
+    </TR>
+    <TR>
+      <TD BORDER="0" ALIGN="RIGHT"><FONT COLOR="#0F6E56">hexadecimal (1 cifra por nibble)</FONT></TD>
+      <TD BGCOLOR="#E1F5EE" COLOR="#0F6E56"><FONT FACE="DejaVu Sans Mono"><B>C</B></FONT></TD>
+      <TD BGCOLOR="#E1F5EE" COLOR="#0F6E56"><FONT FACE="DejaVu Sans Mono"><B>0</B></FONT></TD>
+      <TD BGCOLOR="#E1F5EE" COLOR="#0F6E56"><FONT FACE="DejaVu Sans Mono"><B>A</B></FONT></TD>
+      <TD BGCOLOR="#E1F5EE" COLOR="#0F6E56"><FONT FACE="DejaVu Sans Mono"><B>8</B></FONT></TD>
+    </TR>
+    <TR>
+      <TD BORDER="0"></TD>
+      <TD COLSPAN="2" BORDER="0"><FONT FACE="DejaVu Sans Mono" COLOR="#0F6E56">0xC0</FONT></TD>
+      <TD COLSPAN="2" BORDER="0"><FONT FACE="DejaVu Sans Mono" COLOR="#0F6E56">0xA8</FONT></TD>
+    </TR>
+  </TABLE>>];
+
+  pesos [label=<
+  <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4">
+    <TR><TD BORDER="0" COLSPAN="4"><FONT POINT-SIZE="10" COLOR="#5F5E5A">pesos dentro de un nibble</FONT></TD></TR>
+    <TR>
+      <TD COLOR="#5F5E5A"><FONT FACE="DejaVu Sans Mono" POINT-SIZE="10">8</FONT></TD>
+      <TD COLOR="#5F5E5A"><FONT FACE="DejaVu Sans Mono" POINT-SIZE="10">4</FONT></TD>
+      <TD COLOR="#5F5E5A"><FONT FACE="DejaVu Sans Mono" POINT-SIZE="10">2</FONT></TD>
+      <TD COLOR="#5F5E5A"><FONT FACE="DejaVu Sans Mono" POINT-SIZE="10">1</FONT></TD>
+    </TR>
+    <TR><TD BORDER="0" COLSPAN="4"><FONT POINT-SIZE="10" COLOR="#5F5E5A">10=A 11=B 12=C 13=D 14=E 15=F</FONT></TD></TR>
+  </TABLE>>];
+
+  t -> pesos [style=invis];
+}

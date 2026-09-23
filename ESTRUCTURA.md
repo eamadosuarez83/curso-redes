@@ -86,7 +86,11 @@ curso-redes/
 - **Física de señales, lo mínimo:** voltaje, frecuencia, periodo, longitud de onda, velocidad de propagación, atenuación, ruido y el decibelio (dB y dBm).
 - **Tiempos:** latencia, tiempo de transmisión y tiempo de propagación. Cálculo de cuánto tarda en llegar un archivo.
 
-**Esquemas previstos:** tabla de potencias de 2, conversión binario-hexadecimal por nibbles, onda con amplitud y periodo.
+**Esquemas:**
+- [Conversión binario-hexadecimal por nibbles](recursos/imagenes/conversion_nibbles.svg) — `conversion_nibbles.dot`
+- [Árbol de combinaciones de bits](recursos/imagenes/arbol_combinaciones_bits.svg) — `arbol_combinaciones_bits.dot` (la tabla de potencias de 2 va como tabla en el bloque)
+- [Onda con amplitud y periodo](recursos/imagenes/onda_amplitud_periodo.svg) — `onda_amplitud_periodo.py`
+- [Tiempo de transmisión y de propagación](recursos/imagenes/tiempos_transmision_propagacion.svg) — `tiempos_transmision_propagacion.py`
 
 ### Bloque 02 — ¿Qué es una red y por qué se organiza en capas?
 
